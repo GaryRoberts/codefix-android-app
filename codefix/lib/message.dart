@@ -5,7 +5,7 @@ import 'dart:math';
 
 
 String username = 'codefixapp@gmail.com';
-String password = 'codefix2019';
+String password = ''; // encrypted password
 
 void sendPin(String recipientEmail,String pin) async {
 
@@ -16,7 +16,7 @@ void sendPin(String recipientEmail,String pin) async {
     ..recipients.add(recipientEmail)
     ..subject = 'Verify your CodeFix account. Thanks for joining us 😀'
     ..text = 'Activation pin for CodeFix: '+pin+'</p>';
-    //..html = "<h1>Acitivate now !!!</h1>\n<p>Activation pin for CodeFix: "+pin.toString()+"</p>";
+   
 
   try {
     final sendReport = await send(message, smtpServer);
@@ -85,17 +85,3 @@ db.collection('student').snapshots().listen((data) =>data.documents.forEach((doc
 }
 
 
- /*_sendEmail() async {
-    final String _email = 'mailto:' +
-        "garyroberts1995@gmail.com" +
-        '?subject=' +
-        "Email verification" +
-        '&body=' +
-        "Your verification code is 363344";
-    try {
-      await launch(_email);
-    } catch (e) {
-      //throw 'Could not Call Phone';
-      toast("Verification not sent");
-    }
-  }  */
